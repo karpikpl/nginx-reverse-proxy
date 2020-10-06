@@ -8,21 +8,21 @@ services:
   app-one:
     build:
       context: ./app-one/.
-    ports:
-      - "2076:2076"
+    # ports:
+    #  - "2076:2076"
     networks:
       - nginx-reverse-proxy-test
-    command: [nginx-debug, '-g', 'daemon off;']
+    command: [nginx-debug, "-g", "daemon off;"]
 
   app-two:
     build:
       context: ./app-two/.
-    ports:
-      - "2074:2074"
+    # ports:
+    #  - "2074:2074"
     networks:
       - nginx-reverse-proxy-test
-    command: [nginx-debug, '-g', 'daemon off;']
-      
+    command: [nginx-debug, "-g", "daemon off;"]
+
   proxy:
     build:
       context: ./proxy/.
@@ -33,4 +33,4 @@ services:
       - "31116:31116"
       - "31114:31114"
     networks:
-      - nginx-reverse-proxy-test        
+      - nginx-reverse-proxy-test
